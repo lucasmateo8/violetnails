@@ -51,7 +51,7 @@ h2 {
 }
 
 .contenedor {
-    background-color: pink;
+    background-color: rgb(52, 110, 133);
 }
 
 ul {
@@ -341,5 +341,4 @@ ul {
         height: 300px;
         margin: 50px;
     }
-    
 }
