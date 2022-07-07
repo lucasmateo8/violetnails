@@ -6,6 +6,7 @@ selector {
 */
 /* ENCABEZADO */
 * {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -62,7 +63,7 @@ ul {
     display: flex;
     font-style: inherit;
     color: white;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     gap: 15px;
 
@@ -71,21 +72,26 @@ ul {
 
 .encabezado__menu li {
     color: white;
-    display: flex;
-    justify-content: space-between;
+
     background-color: blueviolet
 }
 
 
 .encabezado_menu_botones {
-    color: rgb(255, 255, 255);
+    color: blueviolet;
     padding: 5px;
-    display: flex;
-    justify-content: space-between;
-    border-style: ridge;
-    border-color: rgb(255, 255, 255);
-    text-decoration: none;
 
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+
+}
+.navbar a{
+    color: blueviolet;
+}
+.navbar img {
+    height: 45px;
+    width: 45px;
 }
 
 /* BODY */
@@ -110,6 +116,14 @@ ul {
     padding: 1px;
     border-color: blueviolet;
     background-color: blueviolet;
+}
+
+.slide {
+    margin-top: 10px;
+}
+
+.slide img {
+    height: 65vh;
 }
 
 /* FOOTER */
@@ -207,9 +221,11 @@ ul {
     align-items: flex-start;
     grid-area: formulario;
 }
-.btborrar{
+
+.btborrar {
     transform: translate(100px, -19px);
 }
+
 .mapa {
     display: flex;
     justify-content: center;
@@ -267,6 +283,7 @@ ul {
         display: flex;
         justify-content: center;
     }
+
     .consultas {
         margin: 10px;
         display: grid;
@@ -276,12 +293,14 @@ ul {
             "consultas "
             "formulario"
     }
+
     .formulario {
         display: flex;
         flex-direction: column;
         align-items: center;
         grid-area: formulario;
     }
+
     .principal__imagen1 {
         width: 600px;
         height: 400px;
@@ -309,13 +328,14 @@ ul {
     .footer_menu {
         display: flex;
         justify-content: center;
-        flex-wrap:wrap;
+        flex-wrap: wrap;
     }
 
     .footer_creditos {
         display: flex;
         justify-content: center;
     }
+
     .consultas {
         margin: 10px;
         display: grid;
@@ -325,17 +345,20 @@ ul {
             "consultas "
             "formulario"
     }
+
     .formulario {
         display: flex;
         flex-direction: column;
         align-items: center;
         grid-area: formulario;
     }
-    .encabezado ul{
+
+    .encabezado ul {
         display: flex;
         flex-direction: column;
 
     }
+
     .principal__imagen1 {
         width: 400px;
         height: 300px;

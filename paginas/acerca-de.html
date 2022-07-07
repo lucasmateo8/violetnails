@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acerca De</title>
   <link rel="shortcut icon" href="../multimedia/logo.jpeg" type="image/x-icon">
+  <link rel="stylesheet" href="../estilos/bootstrap.min.css">
   <link rel="stylesheet" href="../estilos/estilos.css">
 </head>
 
@@ -15,14 +16,34 @@
     <h1 class="encabezado__titulo">VIOLET NAILS</h1>
   </section>
   <header class="encabezado">
-    <nav class="encabezado__menu">
-      <ul>
-        <li><a href="../index.html" class="encabezado_menu_botones">Inicio</a></li>
-        <li><a href="diseños.html" class="encabezado_menu_botones">Diseños</a></li>
-        <li> <a href="precios.html" class="encabezado_menu_botones">Precios</a></li>
-        <li> <a href="contacto.html" class="encabezado_menu_botones">Contacto</a></li>
-        <li> <a href="acerca-de.html" class="encabezado_menu_botones">Acerca de</a></li>
-      </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">VIOLET NAILS</a><img src="../multimedia/logo.jpeg" alt="">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+            <li><a href="../index.html" class="encabezado_menu_botones">Inicio</a></li>
+            </li>
+            <li class="nav-item">
+              <a href="diseños.html" class="encabezado_menu_botones">Diseños</a>
+            </li>
+
+            <li class="nav-item">
+            <li> <a href="precios.html" class="encabezado_menu_botones">Precios</a></li>
+            </li>
+            <li>
+            <li> <a href="contacto.html" class="encabezado_menu_botones">Contacto</a></li>
+            </li>
+            <li>
+            <li> <a href="acerca-de.html" class="encabezado_menu_botones">Acerca de</a></li>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
     <section>
       <a href="https://wa.link/kern1k" class="encabezado__iconos1" target="_blank">
@@ -76,6 +97,7 @@
           <p>© 2022 Violet Nails</p>
         </div>
       </footer>
+      <script src="../js/bootstrap.min.js"></script>
 </body>
 
 </html>
