@@ -1,0 +1,28 @@
+.texto_sobremi {
+    color: blueviolet
+}
+
+.sobremi {
+    display: flex;
+    justify-content: center;
+    font-style: inherit;
+    font-size: x-large;
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+.diplomas {
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    transition: all 300ms;
+    &:hover{
+        transform: scale(1.3);
+        }
+}
+
+.principal_dipolomas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

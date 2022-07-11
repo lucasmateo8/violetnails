@@ -5,61 +5,61 @@ selector {
         propiedad 2: valor 2; 
 */
 /* ENCABEZADO */
-* {
+/* * {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-}
+} */
 
-html {
+/* html {
     font-size: 62, 5%
-}
+} */
 
-h1 {
+/* h1 {
     color: rgb(140, 0, 255);
     font-style: italic;
     text-align: center;
     font-size: 4rem;
     margin: 50px;
-}
+} */
 
-h2 {
+/* h2 {
     color: blueviolet;
     display: flex;
     justify-content: center;
     margin: 50px;
     font-style: oblique;
     font-size: xx-large;
-}
+} */
 
-.encabezado {
+/* .encabezado {
     grid-area: header;
-}
+} */
 
-.encabezado__iconos1 {
+/* .encabezado__iconos1 {
     position: fixed;
     right: 50px;
     top: 5px;
     z-index: 0;
-}
+} */
 
-.encabezado__iconos2 {
+/* .encabezado__iconos2 {
     position: fixed;
     right: 10px;
     top: 5px;
     z-index: 0;
-}
+} */
 
-.contenedor {
+/* .contenedor {
     background-color: pink
-}
-
+} */
+/* 
 ul {
     list-style-type: none;
 }
-
-.encabezado__menu ul {
+ */
+/* .encabezado__menu ul {
     display: flex;
     font-style: inherit;
     color: white;
@@ -75,9 +75,9 @@ ul {
 
     background-color: blueviolet
 }
+ */
 
-
-.encabezado_menu_botones {
+/* .encabezado_menu_botones {
     color: blueviolet;
     padding: 5px;
 
@@ -85,17 +85,18 @@ ul {
     display: flex;
     justify-content: center;
 
-}
-.navbar a{
+} */
+/* .navbar a{
     color: blueviolet;
-}
-.navbar img {
+} */
+/* .navbar img {
     height: 45px;
     width: 45px;
-}
+} */
+
 
 /* BODY */
-.principal {
+/* .principal {
     grid-area: main;
 }
 
@@ -117,17 +118,17 @@ ul {
     border-color: blueviolet;
     background-color: blueviolet;
 }
-
-.slide {
+ */
+/* .slide {
     margin-top: 10px;
 }
 
 .slide img {
     height: 65vh;
-}
+} */
 
 /* FOOTER */
-.footer {
+/* .footer {
     grid-area: footer;
 }
 
@@ -149,11 +150,11 @@ ul {
     color: blueviolet;
     text-decoration: none;
 
-}
+} */
 
 /* DISEÑOS */
 
-.diseños {
+/* .diseños {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -166,9 +167,9 @@ ul {
     height: 200px;
     margin: 10px;
 }
-
+ */
 /* PRECIOS */
-.tabla {
+/* .tabla {
     display: flex;
     justify-content: center;
 
@@ -182,10 +183,10 @@ ul {
     font-style: oblique;
     font-weight: bold;
 }
-
+ */
 /* CONTACTO */
 
-.contacto {
+/* .contacto {
     display: flex;
     justify-content: center;
 
@@ -197,11 +198,11 @@ ul {
     background-color: blueviolet;
     margin: 5px;
     transform: translateY(-25px);
-}
+} */
 
 
 
-.consultas {
+/* .consultas {
     margin: 10px;
     display: grid;
     grid-template-columns: 2, 1fr;
@@ -230,10 +231,10 @@ ul {
     display: flex;
     justify-content: center;
 }
-
+ */
 /* ACERCA DE */
 
-.texto_sobremi {
+/* .texto_sobremi {
     color: blueviolet
 }
 
@@ -256,10 +257,10 @@ ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
+} */
 
 /* Tablet RD (responsive design) */
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     .contenedor {
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(3, 1fr);
@@ -307,10 +308,10 @@ ul {
         margin: 50px;
     }
 }
-
+ */
 
 /* CELULAR RD */
-@media screen and (max-width: 500px) {
+/* @media screen and (max-width: 500px) {
     .contenedor {
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(3, 1fr);
@@ -364,4 +365,4 @@ ul {
         height: 300px;
         margin: 50px;
     }
-}
+} */

@@ -8,7 +8,8 @@
   <title>Contacto</title>
   <link rel="shortcut icon" href="../multimedia/logo.jpeg" type="image/x-icon">
   <link rel="stylesheet" href="../estilos/bootstrap.min.css">
-  <link rel="stylesheet" href="../estilos/estilos.css">
+  <link rel="stylesheet" href="../estilos/main.css">
+ <!--  <link rel="stylesheet" href="../estilos/estilos.css"> -->
 
 </head>
 
@@ -17,15 +18,14 @@
     <h1 class="encabezado__titulo">VIOLET NAILS</h1>
   </section>
   <header class="encabezado">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light ">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">VIOLET NAILS</a><img src="../multimedia/logo.jpeg" alt="">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav m-auto mb-2 mb-lg-0">
             <li class="nav-item">
             <li><a href="../index.html" class="encabezado_menu_botones">Inicio</a></li>
             </li>
@@ -68,7 +68,47 @@
             <a class="contacto_fuente" href="https://www.instagram.com/violet_nails05/" target="_blank">INSTAGRAM</a>
           </p>
         </section>
-        <section class="consultas">
+        <section class="d-flex justify-content-center align-items-center ">
+          <div class="card shadow col-xs-12 col-sm-6 col-md-6 col-lg-4   p-4 formulario"> 
+              <div class="mb-4 d-flex justify-content-start align-items-center ">
+                
+                  <h4>  <i class="bi bi-chat-left-quote"></i> &nbsp; Consultas</h4>
+              </div>
+              <div class="mb-1" >
+                  <form id = "contacto" >
+                      <div class="mb-4 d-flex justify-content-between " > 
+                          <div >
+                              <label for="nombre"> <i class="bi bi-person-fill">Nombre</i> </label>
+                              <input type="text" class="form-control" name="nombre" id="nombre" placeholder= "Ingrese nombre" required>
+                              <div class="nombre text-danger "></div>
+                          </div>
+                          <div >
+                              <label for="apellido"> <i class="bi bi-person-bounding-box"></i> Apellido</label>
+                              <input type="text" class="form-control" name="apellido" id="apellido" placeholder= "Ingrese apellido" required>
+                              <div class="apellido text-danger"></div>
+                          </div>
+                      </div>
+                      <div class="mb-4">
+                          <label for="correo"><i class="bi bi-envelope-fill"></i> Correo</label>
+                          <input type="email" class="form-control" name="correo" id="correo" placeholder= "Ingrese correo" required>
+                          <div class="correo text-danger"></div>
+                      <div class="mb-4">
+                          <label for="mensaje"> <i class="bi bi-chat-right-dots-fill" required></i> Mensaje</label>
+                          <textarea name="mensaje" id="mensaje" class="form-control" placeholder="Escriba su consulta"></textarea>
+                          <div class="mensaje text-danger"></div>
+                      </div> 
+                      
+                      <div class="mb-2 ">
+                          <button id ="botton" class="col-12 btn btn-primary d-flex justify-content-between btenviar ">
+                              <span>Enviar </span><i id="icono" class="bi bi-cursor-fill "></i>
+                          </button>
+                      </div> 
+                                
+                  </form>
+              </div>
+          </div>
+      </section>
+   <!--      <section class="consultas">
           <h2>Consultas:</h2>
           <form class="formulario">
             <label class="formulario_contenido" for="Nombre"></label>
@@ -81,11 +121,11 @@
             <textarea name="" id="" cols="30" rows="5" placeholder="Ingrese su consulta"></textarea>
 
             <!-- boton que envia -->
-            <input type="submit" value="Enviar consulta" class="btenviar">
+      <!--       <input type="submit" value="Enviar consulta" class="btenviar">
             <!-- boton que borra -->
-            <input class="btborrar" type="reset" value="Borrar todo">
-          </form>
-        </section>
+         <!--    <input class="btborrar" type="reset" value="Borrar todo">
+          </form> -->
+       <!--  </section> --> --> -->
         <section>
           <h2>Ubicación</h2>
         </section>
@@ -103,11 +143,11 @@
     </div>
     <div>
       <ul class="footer_menu">
-        <li><a href="index.html" class="footer_menu_botones">Inicio</a></li>
-        <li><a href="paginas/diseños.html" class="footer_menu_botones">Diseños</a></li>
-        <li> <a href="paginas/precios.html" class="footer_menu_botones">Precios</a></li>
-        <li> <a href="paginas/contacto.html" class="footer_menu_botones">Contacto</a></li>
-        <li> <a href="paginas/acerca-de.html" class="footer_menu_botones">Acerca de</a></li>
+        <li><a href="../index.html" class="footer_menu_botones">Inicio</a></li>
+        <li><a href="diseños.html" class="footer_menu_botones">Diseños</a></li>
+        <li> <a href="precios.html" class="footer_menu_botones">Precios</a></li>
+        <li> <a href="contacto.html" class="footer_menu_botones">Contacto</a></li>
+        <li> <a href="acerca-de.html" class="footer_menu_botones">Acerca de</a></li>
       </ul>
     </div>
     <div class="footer_creditos">
