@@ -1,7 +1,13 @@
+$colores: (
+    principal: blueviolet,
+    secundario: azure
+);
+
+
 .tabla {
     display: flex;
     justify-content: center;
-    color: blueviolet;
+    color: map-get($colores, principal );
     margin-bottom: 50px;
     margin-top: 50px;
     transition: all 300ms;
@@ -15,9 +21,9 @@
     
     padding: 10px;
     border: 1px;
-    border-color: blueviolet;
+    border-color:map-get($colores, principal );
     border-style: double;
     font-style: oblique;
     font-weight: bold;
-    background-color: aliceblue;
+    background-color:map-get($colores, secundario );
 }

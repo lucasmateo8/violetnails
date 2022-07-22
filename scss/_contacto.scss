@@ -1,3 +1,8 @@
+$colores: (
+    principal: blueviolet,
+    secundario: azure
+);
+
 .contacto {
     display: flex;
     justify-content: center;
@@ -5,7 +10,7 @@
 }
 
 .contacto_fuente {
-    color: blueviolet;
+    color: map-get($colores, principal );
     padding: 5px;
     background-color: azure;
     margin: 5px;
@@ -19,15 +24,15 @@
 
 
 .formulario {
-    background-color: azure;
+    background-color: #f0ffff;
 
 }
 
 .btenviar {
-    background-color: blueviolet;
+    background-color: map-get($colores, principal );
 }
 
 .mapa {
-    display: flex;
-    justify-content: center;
+    @extend .contacto;
 }
+

@@ -1,5 +1,11 @@
+$colores: (
+    principal: blueviolet,
+    secundario: azure
+);
+
+
 .texto_sobremi {
-    color: blueviolet
+    color:map-get($colores, principal );
 }
 
 .sobremi {

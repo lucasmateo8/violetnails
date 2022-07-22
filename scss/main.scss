@@ -2,7 +2,16 @@
 @import "diseños";
 @import "contacto";
 @import "acercade";
-@import "mediaqueries";
+
+$colores: (
+    principal: blueviolet,
+    secundario: azure
+);
+
+@mixin tamanoimg ($width, $height){
+   width: $width;
+   height: $height;
+}
 
 * {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -16,15 +25,16 @@ html {
 }
 
 h1 {
-    color: blueviolet;
+    color: map-get($colores, principal );
     font-style: italic;
     text-align: center;
     font-size: 4rem;
     margin: 50px;
+
 }
 
 h2 {
-    color: blueviolet;
+    color: map-get($colores, principal );
     display: flex;
     justify-content: center;
     margin: 50px;
@@ -40,36 +50,12 @@ ul {
     grid-area: header;
 }
 
-.encabezado__iconos1 {
-    position: fixed;
-    right: 50px;
-    top: 5px;
-    z-index: 0;
-    transition: all 300ms;
-
-    &:hover {
-        transform: scale(1.5);
-    }
-}
-
-.encabezado__iconos2 {
-    position: fixed;
-    right: 10px;
-    top: 5px;
-    z-index: 0;
-    transition: all 300ms;
-
-    &:hover {
-        transform: scale(1.5);
-    }
-}
-
 .contenedor {
     background-color: pink
 }
 
 .encabezado_menu_botones {
-    color: blueviolet;
+    color: map-get($colores, principal );
     padding: 5px;
     margin-right: 15px;
     margin-left: 15px;
@@ -84,7 +70,7 @@ ul {
 
 .navbar {
     a {
-        color: blueviolet;
+        color: map-get($colores, principal );
     }
 
     img {
@@ -103,17 +89,15 @@ ul {
 }
 
 .principal__imagen1 {
-    width: 800px;
-    height: 400px;
-    margin: 50px;
+    @include tamanoimg(800px,400px)
 }
 
 .hr {
     margin: 20px;
-    color: blueviolet;
+    color: map-get($colores, principal );
     padding: 1px;
-    border-color: blueviolet;
-    background-color: blueviolet;
+    border-color: map-get($colores, principal );
+    background-color: map-get($colores, principal );
 }
 
 .slide {
@@ -134,7 +118,7 @@ ul {
 .footer_creditos {
     display: flex;
     flex-direction: row;
-    color: blueviolet;
+    color: map-get($colores, principal );
     margin: 10px;
 }
 
@@ -146,7 +130,69 @@ ul {
 
 .footer_menu_botones {
     margin: 10px;
-    color: blueviolet;
+    color: map-get($colores, principal );
     text-decoration: none;
 
 }
+
+$map: (
+    iconos1: 50px,
+    iconos2: 10px
+);
+
+@each $key, $valor in $map {
+    .encabezado__#{$key}{
+        position: fixed;
+        right: $valor;
+        top: 5px;
+        z-index: 0;
+        transition: all 300ms;
+        &:hover{
+            transform: scale(1.5);
+        }
+    }
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import "mediaqueries";
