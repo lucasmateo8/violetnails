@@ -1,21 +1,21 @@
 let agregandoProductos = 1;
 const productos = [
-    { id: 1, nombre: "esmaltes", precio: 150 },
-    { id: 2, nombre: "alicate", precio: 70 },
-    { id: 3, nombre: "resina", precio: 100 },
-    { id: 4, nombre: "pincel", precio: 60 },
+    { id: 1, nombre: "Esmaltes", precio: 150 },
+    { id: 2, nombre: "Alicate", precio: 70 },
+    { id: 3, nombre: "Resina", precio: 100 },
+    { id: 4, nombre: "Pincel", precio: 60 },
 ];
 let carrito = [];
-let productoSeleccionado;
+let productoSeleccionado ;
 let cantidadProductoSeleccionado;
 let seleccion;
 let totalEnCarrito = 0;
 
 while (agregandoProductos === 1) {
     while ((seleccion != "si") & (seleccion != "no")) {
-        seleccion = prompt("¿Desea agregar algun producto al carro? si o no");
+        seleccion = prompt("¿Desea agregar algún producto al carro? Escriba si o no");
         if ((seleccion != "si") & (seleccion != "no")) {
-            alert("Por favor ingtesa si o no");
+            alert("Por favor ingresa si o no");
         }
     }
 
@@ -31,10 +31,12 @@ while (agregandoProductos === 1) {
                 producto.precio
         );
         productoSeleccionado = prompt(
-            "A continuación nuestra lista de productos\n" +
-                todoslosProductos.join(" \n")
-        );
-        // VALIDAR QUE EL PRODUCTO EXISTA
+            "A continuación nuestra lista de precios - Elija el número de producto \n" +
+                todoslosProductos.join(" \n")  ); 
+         if (productoSeleccionado > 4 ) {
+            alert("El producto seleccionado no es correcto");
+        }
+        
         if (productoSeleccionado)
             cantidadProductoSeleccionado = prompt(
                 "Ingresar cantidad de " +
@@ -57,10 +59,9 @@ while (agregandoProductos === 1) {
     seleccion = "";
 }
 
-// MOSTRAR RESULTADO
 let todoslosProductosEnCarrito = carrito.map(
     (producto) =>
-        producto.cantidad + " " + producto.nombre + " " + "$" + producto.total
+        producto.cantidad + " Unidades de " + producto.nombre + ": " + "$" + producto.total
 );
 alert(
     todoslosProductosEnCarrito.join(" \n") +
