@@ -1,51 +1,83 @@
-const addToShoppingCartButtons = document.querySelectorAll('.addToCart');
-addToShoppingCartButtons.forEach((addToCartButton) => {
-  addToCartButton.addEventListener('click', addToCartClicked);
+const botonesAgregarAlCarrito = document.querySelectorAll(".addToCart");
+botonesAgregarAlCarrito.forEach((addToCartButton) => {
+    addToCartButton.addEventListener("click", addToCartClicked);
 });
 
-const comprarButton = document.querySelector('.comprarButton');
-comprarButton.addEventListener('click', comprarButtonClicked);
+const comprarButton = document.querySelector(".comprarButton");
+comprarButton.addEventListener("click", comprarButtonClicked);
+
+const cerrarButton = document.querySelector(".cerrarButton");
+cerrarButton.addEventListener("click", cerrarButtonClicked);
 
 const shoppingCartItemsContainer = document.querySelector(
-  '.shoppingCartItemsContainer'
+    ".shoppingCartItemsContainer"
 );
 
-function addToCartClicked(event) {
-  const button = event.target;
-  const item = button.closest('.item');
+let carrito = [];
 
-  const itemTitle = item.querySelector('.item-title').textContent;
-  const itemPrice = item.querySelector('.item-price').textContent;
-  const itemImage = item.querySelector('.item-image').src;
+document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("carrito")) {
+        carrito = JSON.parse(localStorage.getItem("carrito"));
+        let carrito2 = document.getElementById("carrito");
+        carrito2.removeAttribute("hidden");
+        getElementsFromLocalStorage(carrito);
+    }
+});
 
-  addItemToShoppingCart(itemTitle, itemPrice, itemImage);
+function getElementsFromLocalStorage(carrito) {
+    for (let i = 0; i < carrito.length; i++) {
+        addItemToShoppingCart(
+            carrito[i].nombreProducto,
+            carrito[i].precioProducto,
+            carrito[i].itemImage
+        );
+    }
 }
 
-function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
-  const elementsTitle = shoppingCartItemsContainer.getElementsByClassName(
-    'shoppingCartItemTitle'
-  );
-  for (let i = 0; i < elementsTitle.length; i++) {
-    if (elementsTitle[i].innerText === itemTitle) {
-      let elementQuantity = elementsTitle[
-        i
-      ].parentElement.parentElement.parentElement.querySelector(
-        '.shoppingCartItemQuantity'
-      );
-      elementQuantity.value++;
-      $('.toast').toast('show');
-      updateShoppingCartTotal();
-      return;
-    }
-  }
+function addToCartClicked(event) {
+    const button = event.target;
+    const item = button.closest(".item");
+    let carrito2 = document.getElementById("carrito");
+    carrito2.removeAttribute("hidden");
 
-  const shoppingCartRow = document.createElement('div');
-  const shoppingCartContent = `
+    const nombreProducto = item.querySelector(".item-title").textContent;
+    const precioProducto = item.querySelector(".item-price").textContent;
+    const itemImage = item.querySelector(".item-image").src;
+
+    carrito.push({
+        nombreProducto: nombreProducto,
+        precioProducto: precioProducto,
+        itemImage: itemImage,
+    });
+
+    addItemToShoppingCart(nombreProducto, precioProducto, itemImage);
+}
+
+function addItemToShoppingCart(nombreProducto, itemPrice, itemImage) {
+    const elementsTitle = shoppingCartItemsContainer.getElementsByClassName(
+        "shoppingCartItemTitle"
+    );
+    for (let i = 0; i < elementsTitle.length; i++) {
+        if (elementsTitle[i].innerText === nombreProducto) {
+            let elementQuantity = elementsTitle[
+                i
+            ].parentElement.parentElement.parentElement.querySelector(
+                ".shoppingCartItemQuantity"
+            );
+            elementQuantity.value++;
+            $(".toast").toast("show");
+            updateShoppingCartTotal();
+            return;
+        }
+    }
+
+    const shoppingCartRow = document.createElement("div");
+    const shoppingCartContent = `
   <div class="row shoppingCartItem">
         <div class="col-6">
             <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom pb-2 pt-3">
                 <img src=${itemImage} class="shopping-cart-image">
-                <h6 class="shopping-cart-item-title shoppingCartItemTitle text-truncate ml-3 mb-0">${itemTitle}</h6>
+                <h6 class="shopping-cart-item-title shoppingCartItemTitle text-truncate ml-3 mb-0">${nombreProducto}</h6>
             </div>
         </div>
         <div class="col-2">
@@ -62,57 +94,68 @@ function addItemToShoppingCart(itemTitle, itemPrice, itemImage) {
             </div>
         </div>
     </div>`;
-  shoppingCartRow.innerHTML = shoppingCartContent;
-  shoppingCartItemsContainer.append(shoppingCartRow);
+    shoppingCartRow.innerHTML = shoppingCartContent;
+    shoppingCartItemsContainer.append(shoppingCartRow);
 
-  shoppingCartRow
-    .querySelector('.buttonDelete')
-    .addEventListener('click', removeShoppingCartItem);
+    shoppingCartRow
+        .querySelector(".buttonDelete")
+        .addEventListener("click", removeShoppingCartItem);
 
-  shoppingCartRow
-    .querySelector('.shoppingCartItemQuantity')
-    .addEventListener('change', quantityChanged);
+    shoppingCartRow
+        .querySelector(".shoppingCartItemQuantity")
+        .addEventListener("change", quantityChanged);
 
-  updateShoppingCartTotal();
+    updateShoppingCartTotal();
 }
 
 function updateShoppingCartTotal() {
-  let total = 0;
-  const shoppingCartTotal = document.querySelector('.shoppingCartTotal');
+    let total = 0;
 
-  const shoppingCartItems = document.querySelectorAll('.shoppingCartItem');
+    const shoppingCartTotal = document.querySelector(".shoppingCartTotal");
 
-  shoppingCartItems.forEach((shoppingCartItem) => {
-    const shoppingCartItemPriceElement = shoppingCartItem.querySelector(
-      '.shoppingCartItemPrice'
-    );
-    const shoppingCartItemPrice = Number(
-      shoppingCartItemPriceElement.textContent.replace('$', '')
-    );
-    const shoppingCartItemQuantityElement = shoppingCartItem.querySelector(
-      '.shoppingCartItemQuantity'
-    );
-    const shoppingCartItemQuantity = Number(
-      shoppingCartItemQuantityElement.value
-    );
-    total = total + shoppingCartItemPrice * shoppingCartItemQuantity;
-  });
-  shoppingCartTotal.innerHTML = `$${total.toFixed(2)}`;
+    const shoppingCartItems = document.querySelectorAll(".shoppingCartItem");
+
+    shoppingCartItems.forEach((shoppingCartItem) => {
+        const shoppingCartItemPriceElement = shoppingCartItem.querySelector(
+            ".shoppingCartItemPrice"
+        );
+        const shoppingCartItemPrice = Number(
+            shoppingCartItemPriceElement.textContent.replace("$", "")
+        );
+        const shoppingCartItemQuantityElement = shoppingCartItem.querySelector(
+            ".shoppingCartItemQuantity"
+        );
+        const shoppingCartItemQuantity = Number(
+            shoppingCartItemQuantityElement.value
+        );
+        total = total + shoppingCartItemPrice * shoppingCartItemQuantity;
+    });
+    shoppingCartTotal.innerHTML = `$${total.toFixed(2)}`;
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    if (total === 0) {
+        cerrarButtonClicked();
+    }
 }
 
 function removeShoppingCartItem(event) {
-  const buttonClicked = event.target;
-  buttonClicked.closest('.shoppingCartItem').remove();
-  updateShoppingCartTotal();
+    const buttonClicked = event.target;
+    buttonClicked.closest(".shoppingCartItem").remove();
+    updateShoppingCartTotal();
 }
 
 function quantityChanged(event) {
-  const input = event.target;
-  input.value <= 0 ? (input.value = 1) : null;
-  updateShoppingCartTotal();
+    const input = event.target;
+    input.value <= 0 ? (input.value = 1) : null;
+    updateShoppingCartTotal();
 }
 
 function comprarButtonClicked() {
-  shoppingCartItemsContainer.innerHTML = '';
-  updateShoppingCartTotal();
+    shoppingCartItemsContainer.innerHTML = "";
+    updateShoppingCartTotal();
+}
+
+function cerrarButtonClicked() {
+    let carrito = document.getElementById("carrito");
+    carrito.setAttribute("hidden", "hidden");
 }
