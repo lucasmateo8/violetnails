@@ -14,7 +14,7 @@ const shoppingCartItemsContainer = document.querySelector(
 );
 
 let carrito = [];
-
+//apagado de momento
 document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem("carrito")) {
         carrito = JSON.parse(localStorage.getItem("carrito"));
@@ -39,6 +39,16 @@ function addToCartClicked(event) {
     const item = button.closest(".item");
     let carrito2 = document.getElementById("carrito");
     carrito2.removeAttribute("hidden");
+    button.addEventListener('click', () =>{
+        Toastify({
+            text: "Producto Agregado",
+            className: "info",
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+            }
+          }).showToast();
+    })
+    
 
     const nombreProducto = item.querySelector(".item-title").textContent;
     const precioProducto = item.querySelector(".item-price").textContent;
@@ -100,6 +110,7 @@ function addItemToShoppingCart(nombreProducto, itemPrice, itemImage) {
     shoppingCartRow
         .querySelector(".buttonDelete")
         .addEventListener("click", removeShoppingCartItem);
+        
 
     shoppingCartRow
         .querySelector(".shoppingCartItemQuantity")
@@ -142,6 +153,7 @@ function removeShoppingCartItem(event) {
     const buttonClicked = event.target;
     buttonClicked.closest(".shoppingCartItem").remove();
     updateShoppingCartTotal();
+ 
 }
 
 function quantityChanged(event) {
@@ -157,5 +169,13 @@ function comprarButtonClicked() {
 
 function cerrarButtonClicked() {
     let carrito = document.getElementById("carrito");
-    carrito.setAttribute("hidden", "hidden");
+    let cerrarButton = document.querySelector('.cerrarButton');
+    cerrarButton.addEventListener ('click', () => {
+        carrito.setAttribute("hidden", "hidden");  
+    });
+   
+
+    let arrayCarrito = [] 
+    localStorage.setItem("carrito", JSON.stringify(arrayCarrito));
+
 }
