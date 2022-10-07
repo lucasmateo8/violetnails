@@ -15,7 +15,7 @@
   width: 100%;
 }
 
-.item-details {
+#item-details {
   display: flex;
   justify-content: space-between;
   align-items: center;

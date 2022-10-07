@@ -1,0 +1,170 @@
+          <section>
+                  <!-- INICIO SECCION COMPRAS-->
+    <section class="store">
+      <H1>TIENDA</H1>
+      <div class="container">
+          <div class="items">
+              <div class="row">
+
+                  <div class="col-12 col-md-6">
+                      <div class="item shadow mb-4">
+                          <h3 class="item-title">TIPS CRYSTAL GRANDES EN CAJA X 240U - PARA SOFT GEL Y PRESS ON NAILS</h3>
+                          <img class="item-image" src="../multimedia/tips.jpeg">
+
+                          <div class="item-details">
+                              <h4 class="item-price">$900</h4>
+                              <button id="bt1" class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                      <div class="item shadow mb-4">
+                          <h3 class="item-title">TORNO PROFESIONAL INALÁMBRICO DUGA D271, 30.000RPM</h3>
+
+                          <img class="item-image" src="../multimedia/torno.jpg">
+
+                          <div class="item-details">
+                              <h4 class="item-price">$20000</h4>
+                              <button id="bt2" class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-12 col-md-6">
+                      <div class="item shadow mb-4">
+                          <h3 class="item-title"> CABINA LED 48W (SUN 2C)</h3>
+                          <img class="item-image" src="../multimedia/cabinaled.jpg">
+
+                          <div class="item-details">
+                              <h4 class="item-price">$5000</h4>
+                              <button id="bt3" class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                      <div class="item shadow mb-4">
+                          <h3 class="item-title">KIT PARA POLYGEL - CONTROL GEL IBD
+                          </h3>
+
+                          <img class="item-image" src="../multimedia/kitpolygel.jpeg">
+
+                          <div class="item-details">
+                              <h4 class="item-price">$8000</h4>
+                              <button id="bt4" class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-12 col-md-6">
+                      <div class="item shadow mb-4">
+                          <h3 class="item-title">ROLLO DE PAPEL DE ALUMINIO ULTRA GRUESO</h3>
+
+                          <img class="item-image" src="../multimedia/kitpapelaluminio.jpeg">
+                          <div class="item-details">
+                              <h4 class="item-price">$500</h4>
+                              <button id="bt5" class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                      <div class="item shadow mb-4">
+                          <h3 class="item-title">BONDER - POWERBOND IBD</h3>
+
+                          <img class="item-image" src="../multimedia/bonder.jpg">
+                          <div class="item-details">
+                              <h4 class="item-price">$2000</h4>
+                              <button id="bt6" class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- FINAL SECCION COMPRAS -->
+  <!-- INICIO CARRITO -->
+  <section class="shopping-cart">
+      <div hidden="hidden" class="container" id="carrito">
+          <h1 class="text-center">CARRITO</h1>
+          <hr>
+          <div class="row">
+              <div class="col-6">
+                  <div class="shopping-cart-header">
+                      <h6>Producto</h6>
+                  </div>
+              </div>
+              <div class="col-2">
+                  <div class="shopping-cart-header">
+                      <h6 class="text-truncate">Precio</h6>
+                  </div>
+              </div>
+              <div class="col-4">
+                  <div class="shopping-cart-header">
+                      <h6>Cantidad</h6>
+                  </div>
+              </div>
+          </div>
+          <!-- ? INICIO CARRITO ITEMS -->
+          <div class="shopping-cart-items shoppingCartItemsContainer">
+          </div>
+          <!-- ?FINAL CARRITO ITEMS -->
+
+          <!-- INICIO TOTAL -->
+          <div class="row">
+              <div class="col-12">
+                  <div class="shopping-cart-total d-flex align-items-center">
+                      <p class="mb-0">Total</p>
+                      <p class="ml-4 mb-0 shoppingCartTotal">$0</p>
+                      <div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true"
+                          data-delay="2000">
+                          <div class="toast-header">
+                              <span>✅</span>
+                              <strong class="mr-auto ml-1 text-secondary">Elemento en el carrito</strong>
+                              <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>
+                          <div class="toast-body text-white">
+                              Se aumentó correctamente la cantidad
+                          </div>
+                      </div>
+                      <button class="btn btn-success ml-auto comprarButton" type="button" data-toggle="modal"
+                          data-target="#comprarModal">Comprar</button>
+                  </div>
+              </div>
+          </div>
+
+          <!-- FINAL TOTAL -->
+
+          <!-- INICIO MODAL COMPRA -->
+          <div class="modal fade" id="comprarModal" tabindex="-1" aria-labelledby="comprarModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="comprarModalLabel">Gracias por su compra</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body">
+                          <p>Pronto recibirá su pedido</p>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary cerrarButton" data-dismiss="modal">Cerrar</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- FINAL MODAL COMPRA -->
+
+
+      </div>
+
+  </section>
+  <!-- FINAL CARRITO -->
+                  
+              </section>
