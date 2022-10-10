@@ -8,8 +8,16 @@ fetch("../data.json")
   const DOMcarrito = document.querySelector('#carrito');
   const DOMtotal = document.querySelector('#total');
   const DOMbotonVaciar = document.querySelector('#boton-vaciar');
-  
- 
+  const DOMbotonFinalizar = document.querySelector('#finalizar')
+
+
+ // document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("carrito")) {
+       carrito = JSON.parse(localStorage.getItem("carrito"));
+       // getElementsFromLocalStorage(carritoLS);
+       console.log(carrito);
+    }
+
 
   function renderizarProductos() {
     baseDeDatos.forEach((info) => {
@@ -34,10 +42,23 @@ fetch("../data.json")
         
         const miNodoBoton = document.createElement('button');
         miNodoBoton.classList.add('btn', 'btn-primary');
-        miNodoBoton.textContent = '+';
+        miNodoBoton.textContent = 'Agregar al carro';
         miNodoBoton.setAttribute('marcador', info.id);
         miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
         
+        miNodoBoton.addEventListener('click', () =>{
+          Toastify({
+              text: "Producto Agregado 😏",
+              className: "info",
+              style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)",
+              }
+            }).showToast();
+          })
+
+
+
+
         miNodoCardBody.appendChild(miNodoImagen);
         miNodoCardBody.appendChild(miNodoTitle);
         miNodoCardBody.appendChild(miNodoPrecio);
@@ -59,6 +80,8 @@ fetch("../data.json")
  
   function renderizarCarrito() {
   
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
     DOMcarrito.textContent = '';
    
     const carritoSinDuplicados = [...new Set(carrito)];
@@ -88,11 +111,35 @@ fetch("../data.json")
        
         miNodo.appendChild(miBoton);
         DOMcarrito.appendChild(miNodo);
+
+        miBoton.addEventListener('click', () =>{
+          Toastify({
+              text: "Producto Eliminado",
+              className: "info",
+              style: {
+                background: "linear-gradient(to right, #fc4903, #fc8353)",
+              }
+            }).showToast();
+          })
     });
     
     DOMtotal.textContent = calcularTotal();
   }
   
+  
+
+function getElementsFromLocalStorage(carritoLS) {
+    for (let i = 0; i < carritoLS.length; i++) {
+carrito.push (carritoLS[i]) 
+    }
+    renderizarCarrito()
+}
+
+
+
+
+
+
  
   function borrarItemCarrito(evento) {
    
@@ -119,6 +166,8 @@ fetch("../data.json")
   }
   
 
+
+
   function vaciarCarrito() {
     
     carrito = [];
@@ -128,7 +177,26 @@ fetch("../data.json")
   
 
   DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+  DOMbotonVaciar.addEventListener('click', () =>{
+    Toastify({
+        text: "Carrito vacío ☹️",
+        className: "info",
+        style: {
+          background: "linear-gradient(to right, #fc4903, #fc8353)",
+        }
+      }).showToast();
+    })
   
+    DOMbotonFinalizar.addEventListener('click', vaciarCarrito);
+  DOMbotonFinalizar.addEventListener('click', () =>{
+    Toastify({
+        text: "Compra finalizada",
+        className: "info",
+        style: {
+          background: "linear-gradient(to right, #fc4903, #fc8353)",
+        }
+      }).showToast();
+    })
 
   renderizarProductos();
   renderizarCarrito();
